@@ -10,8 +10,7 @@
 	</head>
 
 	<body>
-       
-        <main>
+        <main id="app">
             <div class="clock" id="clock" data-hours="12" data-minutes="36" data-seconds="52">
                 <div class="digit">
                     <div class="line"></div>
@@ -71,7 +70,7 @@
             <div class="date" id="date">
                 wed 15-02-22
             </div>
-            <div class="logo">
+            <div class="logo" id="logo">
                 <img src="./assets/img/logo.png" alt="">
             </div>
             
@@ -99,16 +98,34 @@
                 dateEl.innerText = `${monthNames[date.getMonth()]} ${getNormalValue(date.getDate())}-${getNormalValue(date.getMonth() + 1)}-${getNormalValue(date.getFullYear())}`
             }
         </script>
-
         <script>
+            const getCssColor = color => `rgb(${color})`;
             window.wallpaperPropertyListener = {
                 applyUserProperties: function(properties) {
                     if (properties.color) {
-                        const color = properties.color.value.split(' ').map(function(c) {
+                        const color = getCssColor(properties.color.value.split(' ').map(c => {
                             return Math.ceil(c * 255);
-                        });
-                        const cssColor = 'rgb(' + color + ')';
-                        document.body.style.setProperty('--main-color', cssColor)
+                        }));
+                        document.body.style.setProperty('--main-color', color)
+                    }
+                    if (properties.topgradientcolor) {
+                        const topColor = getCssColor(properties.topgradientcolor.value.split(' ').map(c => {
+                            return Math.ceil(c * 255)
+                        }))
+                        document.body.style.setProperty('--gradient-top-color', topColor);
+                    }
+                    if (properties.bottomgradientcolor) {
+                        const bottomColor = getCssColor(properties.bottomgradientcolor.value.split(' ').map(c => {
+                            return Math.ceil(c * 255)
+                        }))
+                        document.body.style.setProperty('--gradient-bottom-color', bottomColor);
+                    }
+                    if (properties.logotype){
+                        document.getElementById('logo').style.display = properties.logotype.value ? "block" : "none";
+                    }
+                    if (properties.perspective){
+                        const app = document.getElementById('app');
+                        properties.perspective.value ? app.classList.remove('no_perspective') : app.classList.add('no_perspective')
                     }
                 },
             };
