@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -10,7 +11,7 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: 15px;
 }
 
 @media screen and (max-width: 1366px) {
@@ -34,6 +35,22 @@ body {
           align-items: center;
   background: -webkit-gradient(linear, left top, left bottom, from(#1F1E24), to(#070611));
   background: linear-gradient(180deg, #1F1E24 0%, #070611 100%);
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .clock {
@@ -166,6 +183,26 @@ body {
 .clock .digit .line:nth-child(7) {
   top: 50%;
   right: 0;
+}
+
+.date {
+  font-family: "Montserrat";
+  font-weight: 700;
+  font-size: 1.25rem;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  color: #4f4e81;
+  text-transform: uppercase;
+  margin-top: 2rem;
+  -webkit-transform: translateZ(20px);
+          transform: translateZ(20px);
+}
+
+.logo {
+  margin-top: 2.25rem;
+  width: 9.75rem;
+  -webkit-transform: translateZ(20px);
+          transform: translateZ(20px);
 }
 
 [data-hours^="0"] .digit:nth-child(1) :nth-child(4):before, [data-hours^="0"] .digit:nth-child(1) :nth-child(4):after {

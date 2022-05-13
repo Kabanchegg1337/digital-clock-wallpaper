@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 $color : #4f4e81;
 $digit-lines-config: (
   0: 4,
@@ -31,7 +32,7 @@ $digit-lines-config: (
     perspective: 1000px;
 }
 html {
-    font-size: 16px;
+    font-size: 15px;
     @media screen and (max-width: 1366px) {
         font-size: 13px;
     }
@@ -44,6 +45,12 @@ body {
     justify-content: center;
     align-items: center;
     background: linear-gradient(180deg, #1F1E24 0%, #070611 100%);
+}
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .clock {
     display: flex;
@@ -140,7 +147,21 @@ body {
         }
     }   
 }
-
+.date {
+    font-family: "Montserrat";
+    font-weight: 700;
+    font-size: 1.25rem;
+    align-self: flex-end;
+    color: $color;
+    text-transform: uppercase;
+    margin-top: 2rem;
+    transform: translateZ(20px);
+}
+.logo {
+    margin-top: 2.25rem;
+    width: 9.75rem;
+    transform: translateZ(20px);
+}
 @each $i, $lines in $digit-lines-config {
     @if ($i <= 2) {
         [data-hours^="#{$i}"] {
