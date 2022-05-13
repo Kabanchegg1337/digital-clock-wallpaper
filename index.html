@@ -96,7 +96,7 @@
                 clock.dataset.hours = getNormalValue(date.getHours());
                 clock.dataset.minutes = getNormalValue(date.getMinutes());
                 clock.dataset.seconds = getNormalValue(date.getSeconds());
-                dateEl.innerText = `${monthNames[date.getMonth()]} ${getNormalValue(date.getDate())}-${getNormalValue(date.getMonth())}-${getNormalValue(date.getFullYear())}`
+                dateEl.innerText = `${monthNames[date.getMonth()]} ${getNormalValue(date.getDate())}-${getNormalValue(date.getMonth() + 1)}-${getNormalValue(date.getFullYear())}`
             }
         </script>
 
