@@ -16,7 +16,7 @@ html {
 
 @media screen and (max-width: 1366px) {
   html {
-    font-size: 13px;
+    font-size: 11px;
   }
 }
 
@@ -99,11 +99,16 @@ main {
   position: absolute;
   color: #4f4e81;
   background: #4f4e81;
-  -webkit-transition: all 0.9s ease;
-  transition: all 0.9s ease;
+  -webkit-transition: all 0.6s cubic-bezier(0.5, 0, 0.5, 1);
+  transition: all 0.6s cubic-bezier(0.5, 0, 0.5, 1);
   border-radius: 1ch;
   -webkit-box-shadow: 0 0 1rem #4f4e81;
           box-shadow: 0 0 1rem #4f4e81;
+}
+
+.clock .digit .line::after {
+  -webkit-transition: all 0.6s cubic-bezier(0.4, 0, 0.1, 1);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.1, 1);
 }
 
 .clock .digit .line:nth-child(2n - 1) {
@@ -203,6 +208,12 @@ main {
   width: 9.75rem;
   -webkit-transform: translateZ(20px);
           transform: translateZ(20px);
+}
+
+.logo img {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 [data-hours^="0"] .digit:nth-child(1) :nth-child(4):before, [data-hours^="0"] .digit:nth-child(1) :nth-child(4):after {

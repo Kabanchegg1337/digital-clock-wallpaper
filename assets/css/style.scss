@@ -34,7 +34,7 @@ $digit-lines-config: (
 html {
     font-size: 15px;
     @media screen and (max-width: 1366px) {
-        font-size: 13px;
+        font-size: 11px;
     }
 }
 body {
@@ -79,10 +79,13 @@ main {
                 position: absolute;
                 color: $color;
                 background: $color;
-                transition: all 0.9s ease;
+                transition: all 0.6s cubic-bezier(0.5, 0, 0.5, 1);
                 border-radius: 1ch;
                 box-shadow: 0 0 1rem $color;
               }
+            &::after {
+                transition: all 0.6s cubic-bezier(0.4, 0, 0.1, 1);
+            }
             &:nth-child(2n - 1) {
                 height: 50%;
                 width: 10px;
@@ -161,6 +164,10 @@ main {
     margin-top: 2.25rem;
     width: 9.75rem;
     transform: translateZ(20px);
+    img {
+        width: 100%;
+        object-fit: contain;
+    }
 }
 @each $i, $lines in $digit-lines-config {
     @if ($i <= 2) {
